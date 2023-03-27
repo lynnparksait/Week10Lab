@@ -33,6 +33,7 @@ public class AdminFilter implements Filter {
         String email = (String) session.getAttribute("email");
         UserDB userDb = new UserDB();
         User user = userDb.get(email);
+        
         if (user.getRole().getRoleId() != 1) {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
             httpResponse.sendRedirect("login");
